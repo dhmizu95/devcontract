@@ -1,8 +1,9 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const expiresIn = require('config').get('expiresIn');
+const secretOrKey = require('config').get('secretOrKey');
 
 const { validationResult } = require('express-validator');
-const { secretOrKey, expiresIn } = require('../config/keys');
 
 const User = require('../models/user');
 

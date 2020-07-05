@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const expiresIn = require('config').get('expiresIn');
+const secretOrKey = require('config').get('secretOrKey');
 
 const { validationResult } = require('express-validator');
-const { secretOrKey, expiresIn } = require('../config/keys');
 
 const User = require('../models/user');
-const { json } = require('express');
 
 // @route   Post api/users
 // @desc    Register user
