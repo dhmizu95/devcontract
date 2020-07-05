@@ -126,9 +126,30 @@ const profile_by_user_id = async (req, res) => {
 	}
 };
 
+// @route   DELETE api/profile
+// @desc    Delete user, profile & posts
+// @access  Private
+const delete_user_profile_posts = async (req, res) => {
+	try {
+		// @todo - remove user posts
+
+		// Remove profile
+		const profile = await Profile.findOneAndRemove({ user: req.user.id });
+
+		// Remove user
+		const user = await User.findOneAndRemove({ _id: req.user.id });
+
+		res.json('User deleted.');
+	} catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server error.');
+	}
+};
+
 module.exports = {
 	current_user_profile,
 	create_update_user_profile,
 	all_user_profile,
 	profile_by_user_id,
+	delete_user_profile_posts,
 };

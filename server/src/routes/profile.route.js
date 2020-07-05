@@ -28,4 +28,9 @@ router.get('/', profileController.all_user_profile);
 // @access  Public
 router.get('/user/:user_id', profileController.profile_by_user_id);
 
+// @route   DELETE api/profile
+// @desc    Delete user, profile & posts
+// @access  Private
+router.delete('/', auth, profileController.delete_user_profile_posts);
+
 module.exports = router;
