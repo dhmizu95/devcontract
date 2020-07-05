@@ -56,8 +56,8 @@ const register = async (req, res) => {
 			res.json({ token });
 		});
 	} catch (error) {
-		console.log(error.message);
-		res.status(404).json('Server error');
+		console.error(error.message);
+		res.status(404).json('Server error.');
 	}
 };
 

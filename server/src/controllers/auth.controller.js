@@ -15,8 +15,8 @@ const user = async (req, res) => {
 		const user = await User.findById(req.user.id).select('-password');
 		res.json({ user });
 	} catch (error) {
-		console.log(error.message);
-		res.status(500).send('Server error');
+		console.error(error.message);
+		res.status(500).send('Server error.');
 	}
 };
 
@@ -54,8 +54,8 @@ const login = async (req, res) => {
 			res.json({ token });
 		});
 	} catch (error) {
-		console.log(error.message);
-		res.status(404).json('Server error');
+		console.error(error.message);
+		res.status(404).json('Server error.');
 	}
 };
 
