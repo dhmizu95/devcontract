@@ -1,10 +1,12 @@
 const express = require('express');
-const router = express.Router();
+const registerValidate = require('../validation/register.validate');
 const userController = require('../controllers/users.controller');
 
-// @route   GET api/users
-// @desc    Test route
+const router = express.Router();
+
+// @route   Post api/users
+// @desc    Register user
 // @access  Public
-router.get('/', userController.test);
+router.post('/', registerValidate, userController.register);
 
 module.exports = router;

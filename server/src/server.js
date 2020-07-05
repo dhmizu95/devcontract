@@ -6,7 +6,10 @@ const { port } = require('./config/keys');
 
 const app = express();
 
+// Init middleware
 app.use(morgan('dev'));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => {
 	res.send('Hello World!');
