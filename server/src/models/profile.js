@@ -53,6 +53,9 @@ const profileSchema = new Schema({
 				type: Boolean,
 				default: false,
 			},
+			description: {
+				type: String,
+			},
 		},
 	],
 	education: [
@@ -79,6 +82,9 @@ const profileSchema = new Schema({
 			current: {
 				type: Boolean,
 				default: false,
+			},
+			description: {
+				type: String,
 			},
 		},
 	],
