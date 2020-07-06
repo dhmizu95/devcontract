@@ -1,7 +1,10 @@
 const Profile = require('../models/profile');
 const User = require('../models/user');
-
+const githubClientID = require('config').get('githubClientID');
+const githubClientSecret = require('config').get('githubClientSecret');
+const axios = require('axios');
 const { validationResult } = require('express-validator');
+
 // @route   GET api/profile/me
 // @desc    Get current user profile
 // @access  Private
@@ -266,6 +269,26 @@ const delete_profile_education = async (req, res) => {
 	}
 };
 
+// @route   Get api/profile/github/:username
+// @desc    Get users github profile
+// @access  Public
+const github_profile = async (req, res) => {
+	try {
+		const uri = encodeURI(
+			`https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc&client_id=${githubClientID}&client_secret=${githubClientSecret}`
+		);
+		const headers = {
+			'user-agent': 'node.js',
+		};
+
+		const gitHubResponse = await axios.get(uri, { headers });
+		return res.json(gitHubResponse.data);
+	} catch (error) {
+		console.error(error.message);
+		res.status(404).json({ msg: 'No Github profile found' });
+	}
+};
+
 module.exports = {
 	current_user_profile,
 	create_update_user_profile,
@@ -276,4 +299,5 @@ module.exports = {
 	delete_profile_experience,
 	add_profile_education,
 	delete_profile_education,
+	github_profile,
 };

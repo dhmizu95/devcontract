@@ -70,4 +70,10 @@ router.delete(
 	auth,
 	profileController.delete_profile_education
 );
+
+// @route   Get api/profile/github/:username
+// @desc    Get users github profile
+// @access  Public
+router.get('/github/:username', profileController.github_profile);
+
 module.exports = router;

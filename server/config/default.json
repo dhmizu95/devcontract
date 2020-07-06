@@ -2,5 +2,7 @@
 	"mongoURI": "mongodb+srv://devcontract:devcontract@cluster0.zhkoc.mongodb.net/devcontract?retryWrites=true&w=majority",
 	"port": 5050,
 	"secretOrKey": "secret",
-	"expiresIn": 360000
+	"expiresIn": 360000,
+	"githubClientID": "7f0c27959a1d648f3d12",
+	"githubClientSecret": "3ed62bcffc95b50f38795d4cd3f0e7ed4bd58661"
 }
