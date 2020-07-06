@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const port = require('config').get('port');
 
-const connectDB = require('./helpers/db');
+const connectDB = require('./helpers/db.helper');
 
 const app = express();
 
@@ -16,9 +16,9 @@ app.get('/', (req, res) => {
 });
 
 // Use Router
-app.use('/api/users', require('./routes/users.route'));
+app.use('/api/user', require('./routes/user.route'));
 app.use('/api/profile', require('./routes/profile.route'));
-app.use('/api/posts', require('./routes/posts.route'));
+app.use('/api/post', require('./routes/post.route'));
 app.use('/api/auth', require('./routes/auth.route'));
 
 // Connect mongoDB & listening the server
