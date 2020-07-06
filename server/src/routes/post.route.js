@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const postController = require('../controllers/post.controller');
-const postValidate = require('../validations/post.validate');
+const textValidate = require('../validations/text.validate');
 const auth = require('../middlewares/auth.middleware');
 
 // @route   POST api/posts
 // @desc    Create a post
 // @access  Private
-router.post('/', [auth, postValidate], postController.create_post);
+router.post('/', [auth, textValidate], postController.create_post);
 
 // @route   GET api/posts
 // @desc    Get all posts
@@ -33,5 +33,19 @@ router.put('/like/:id', auth, postController.like_post);
 // @desc    Unlike a post
 // @access  Private
 router.put('/unlike/:id', auth, postController.unlike_post);
+
+// @route   PUT api/posts/comment/:id
+// @desc    Comment on a post
+// @access  Private
+router.put('/comment/:id', [auth, textValidate], postController.comment_post);
+
+// @route   Delete api/posts/comment/:id/:comment_id
+// @desc    Delete a comment from a post
+// @access  Private
+router.delete(
+	'/comment/:id/:comment_id',
+	auth,
+	postController.delete_comment_from_post
+);
 
 module.exports = router;
