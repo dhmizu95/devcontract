@@ -4,7 +4,7 @@ const userController = require('../controllers/user.controller');
 
 const router = express.Router();
 
-// @route   Post api/user
+// @route   Post api/users
 // @desc    Register user
 // @access  Public
 router.post('/', registerValidate, userController.register);

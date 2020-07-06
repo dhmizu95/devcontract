@@ -57,7 +57,7 @@ const register = async (req, res) => {
 		});
 	} catch (error) {
 		console.error(error.message);
-		res.status(404).json('Server error.');
+		res.status(500).json('Server error.');
 	}
 };
 

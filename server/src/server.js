@@ -16,9 +16,9 @@ app.get('/', (req, res) => {
 });
 
 // Use Router
-app.use('/api/user', require('./routes/user.route'));
+app.use('/api/users', require('./routes/user.route'));
 app.use('/api/profile', require('./routes/profile.route'));
-app.use('/api/post', require('./routes/post.route'));
+app.use('/api/posts', require('./routes/post.route'));
 app.use('/api/auth', require('./routes/auth.route'));
 
 // Connect mongoDB & listening the server
