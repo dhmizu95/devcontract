@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const profileController = require('../controllers/profile.controller');
-const profileValidate = require('../validation/profile.validate');
-const experienceValidate = require('../validation/experience.validate');
-const auth = require('../middleware/auth.middleware');
-const educationValidate = require('../validation/education.validate');
+const profileValidate = require('../validations/profile.validate');
+const experienceValidate = require('../validations/experience.validate');
+const auth = require('../middlewares/auth.middleware');
+const educationValidate = require('../validations/education.validate');
 
 // @route   GET api/profile/me
 // @desc    Get current user profile

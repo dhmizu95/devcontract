@@ -1,5 +1,5 @@
-const Profile = require('../models/profile');
-const User = require('../models/user');
+const Profile = require('../models/profile.model');
+const User = require('../models/user.model');
 const githubClientID = require('config').get('githubClientID');
 const githubClientSecret = require('config').get('githubClientSecret');
 const axios = require('axios');

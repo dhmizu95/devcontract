@@ -7,7 +7,7 @@ const secretOrKey = require('config').get('secretOrKey');
 
 const { validationResult } = require('express-validator');
 
-const User = require('../models/user');
+const User = require('../models/user.model');
 
 // @route   Post api/users
 // @desc    Register user
